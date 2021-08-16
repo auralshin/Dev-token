@@ -1,0 +1,31 @@
+{
+    "name": "Dev-token",
+    "description": "Stackoverflow Extension!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+      },
+      "permissions": ["storage", "declarativeContent", "activeTab"],
+  "host_permissions": [
+    "*://*.localhost/*","*://*.stackoverflow.com/*"
+  ],
+      "content_scripts": [
+        {
+          "matches": [
+            "https://stackoverflow.com/*"
+          ],
+          "js": ["content.js"],
+          "all_frames": true
+        }
+      ],
+      "action": {
+        "default_popup": "popup.html"
+      },
+      "web_accessible_resources": [
+        {"resources":[""],
+          "matches": ["*://*.localhost/*","*://*.stackoverflow.com/*" ]
+        }
+      ]
+    
+  }
